@@ -1,33 +1,72 @@
 import React from "react";
+import "./PomodoroClock.css";
 
 export default function PomodoroClock() {
   return (
     <div className="clock-container">
       <div className="clock-row">
-        <div id="timer-label">
-          Session<div id="time-left">25:00</div>
+        <div className="clock-timer-container">
+          <label htmlFor="time-left" id="timer-label">
+            Session
+          </label>
+          <div id="time-left">
+            <span className="time-left-minusecs">25</span>
+            <span id="minusecs-between">:</span>
+            <span className="time-left-minusecs">00</span>
+          </div>
         </div>
       </div>
-      <div className="clock-row">
-        <div id="start_stop">{"=>"}</div>
-        <div id="reset">{"<>"}</div>
+      <div className="clock-row-start-stop">
+        <i
+          id="start_stop"
+          className={
+            true
+              ? "clock-icon-start-stop fas fa-play-circle"
+              : "clock-icon-start-stop fas fa-pause-circle"
+          }
+        ></i>
+        <i id="reset" className="clock-icon-start-stop fas fa-undo"></i>
       </div>
-      <div className="clock-row">
-        <div className="break-session-settings">
-          <label htmlFor="break-length" id="break-label">
+      <div className="clock-row-break-session">
+        <div id="session-container" className="break-session-settings">
+          <label
+            htmlFor="session-length"
+            id="session-label"
+            className="break-session-label"
+          >
             Session Length
           </label>
-          <span id="break-increment">+</span>
-          <span id="break-length">5</span>
-          <span id="break-decrement">-</span>
+          <div>
+            <i
+              id="session-increment"
+              className="clock-icon-plus-minus fas fa-plus-square"
+            ></i>
+            <span id="session-length">25</span>
+            <i
+              id="session-decrement"
+              className="clock-icon-plus-minus fas fa-minus-square"
+            ></i>
+          </div>
         </div>
-        <div className="break-session-settings">
-          <label htmlFor="session-length" id="session-label">
-            Session Length
+        <div id="break-container" className="break-session-settings">
+          <label
+            htmlFor="break-length"
+            id="break-label"
+            className="break-session-label"
+          >
+            Break Length
           </label>
-          <span id="session-increment">+</span>
-          <span id="session-length">25</span>
-          <span id="session-decrement">-</span>
+          <div>
+            <i
+              id="break-increment"
+              className="clock-icon-plus-minus fas fa-plus-square"
+            ></i>
+            <span id="break-length">5</span>
+            <i
+              id="break-decrement"
+              className="clock-icon-plus-minus fas fa-minus-square"
+            ></i>
+          </div>
         </div>
       </div>
     </div>

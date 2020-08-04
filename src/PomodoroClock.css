@@ -1,0 +1,127 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@800&display=swap");
+
+.clock-container {
+  background-color: #f8bb12;
+  border-radius: 10px;
+  width: 500px;
+  height: 550px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: -7px 7px 1px 2px #c4930db6;
+  transition-duration: 0.2s;
+}
+.clock-container:hover {
+  background-color: #f8b808;
+}
+
+.clock-timer-container {
+  width: 400px;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+#timer-label {
+  font-size: 50px;
+  margin-bottom: 50px;
+}
+#time-left {
+  font-size: 90px;
+}
+.time-left-minusecs {
+  cursor: pointer;
+  font-family: "Orbitron", sans-serif;
+  background-color: white;
+  padding: 15px 10px 15px 10px;
+  border-radius: 10px;
+  box-shadow: -5px 5px 1px 1px rgb(114, 114, 114);
+}
+
+.time-left-minusecs:hover {
+  transform: translateX(10px);
+  color: rgb(255, 115, 0);
+  font-size: 92px;
+}
+
+#minusecs-between {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.clock-icon-start-stop {
+  font-size: 50px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  transition-duration: 0.1s;
+  cursor: pointer;
+  color: white;
+  text-shadow: -2px 4px rgb(102, 101, 101);
+}
+.clock-icon-start-stop:hover {
+  color: rgb(201, 201, 201);
+  text-shadow: -1px 3px rgb(114, 113, 113);
+}
+.clock-icon-start-stop:active {
+  color: black;
+  text-shadow: 0px 0px rgb(221, 220, 220);
+  transform: translateY(1px);
+}
+#start_stop {
+  margin-right: 30px;
+}
+#reset {
+  margin-left: 30px;
+}
+
+.clock-row-break-session {
+  display: inline-flex;
+  flex-direction: row;
+  font-size: 30px;
+}
+.break-session-settings {
+  display: flex;
+  flex-direction: column;
+}
+#session-container {
+  margin-right: 40px;
+}
+#session-length {
+  margin: 0px 10px 0px 10px;
+}
+#break-length {
+  margin: 0px 10px 0px 10px;
+}
+
+.clock-icon-plus-minus {
+  color: white;
+  transition-duration: 0.1s;
+  cursor: pointer;
+  text-shadow: -2px 3px rgb(102, 101, 101);
+}
+.clock-icon-plus-minus:hover {
+  color: rgb(201, 201, 201);
+  text-shadow: -1px 3px rgb(114, 113, 113);
+}
+.clock-icon-plus-minus:active {
+  color: black;
+  text-shadow: 0px 0px rgb(221, 220, 220);
+  transform: translateY(1px);
+}
+
+.break-session-label {
+  margin-bottom: 15px;
+}
+@media only screen and (max-width: 768px) {
+  .clock-container {
+    width: 350px;
+    height: 520px;
+    transform: scale(0.95, 0.95);
+  }
+  #time-left {
+    font-size: 70px;
+  }
+  .clock-icon-start-stop {
+    margin-bottom: 30px;
+  }
+}
