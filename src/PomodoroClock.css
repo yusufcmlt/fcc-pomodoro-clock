@@ -50,6 +50,8 @@
   font-size: 90px;
 }
 .time-left-minusecs {
+  display: inline-block;
+  width: 150px;
   cursor: pointer;
   font-family: "Orbitron", sans-serif;
   background-color: white;
@@ -139,7 +141,7 @@
 
 @media only screen and (max-width: 768px) {
   .clock-container {
-    width: 350px;
+    width: 370px;
     height: 520px;
     transform: scale(0.95, 0.95);
   }
@@ -148,5 +150,8 @@
   }
   .clock-icon-start-stop {
     margin-bottom: 30px;
+  }
+  .time-left-minusecs {
+    width: 130px;
   }
 }
