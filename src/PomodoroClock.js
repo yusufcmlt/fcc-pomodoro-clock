@@ -13,62 +13,90 @@ export default function PomodoroClock() {
   const [sessionSetting, setSessionSetting] = useState(25);
   const [breakSetting, setBreakSetting] = useState(5);
 
-  const startStop = () => {
-    let timerInterval;
+  const [sessionBreakToggle, setSBToggle] = useState(false);
 
-    timerInterval = setInterval(function () {}, 100);
-
-    if (!startToggle) {
-      setStartToggle(true);
-    } else {
-      setStartToggle(false);
+  useEffect(() => {
+    let timerInterval = null;
+    if (startToggle) {
+      timerInterval = setInterval(() => {
+        if (timeLeftSecond === 0 && timeLeftMinute > 0) {
+          setTimeLeftMinute(timeLeftMinute - 1);
+          setTimeLeftSeconds(59);
+        } else if (timeLeftSecond > 0) {
+          setTimeLeftSeconds(timeLeftSecond - 1);
+        } else if (timeLeftSecond === 0 && timeLeftSecond === 0) {
+          playSound("beep");
+          if (!sessionBreakToggle) {
+            setTimeLeftMinute(breakSetting);
+            setSBToggle(true);
+          } else {
+            setSBToggle(false);
+            setTimeLeftMinute(sessionSetting);
+          }
+        }
+      }, 1000);
+    } else if (!startToggle && timeLeftSecond !== 0) {
+      clearInterval(timerInterval);
     }
+    return () => clearInterval(timerInterval);
+  }, [
+    startToggle,
+    timeLeftSecond,
+    timeLeftMinute,
+    breakSetting,
+    sessionBreakToggle,
+    sessionSetting,
+  ]);
+
+  const startStop = () => {
+    setStartToggle(!startToggle);
 
     playSound("button-audio");
   };
 
-  function intervalFunction() {
-    setTimeLeftSeconds(timeLeftSecond + 1);
-    //   if (timeLeftSecond > 0) {
-    //     setTimeLeftSeconds(timeLeftSecond - 1);
-    //   } else if (timeLeftSecond === 0) {
-    //     if (timeLeftMinute >= 0) {
-    //       setTimeLeftSeconds(59);
-    //       setTimeLeftMinute(timeLeftMinute - 1);
-    //     } else if (timeLeftMinute === 0 && timeLeftSecond === 0) {
-    //       playSound("timer-audio");
-    //       setTimeLeftMinute(5);
-    //       setTimeLeftSeconds(0);
-    //     }
-    //   }
-  }
-
   const resetAll = () => {
     setTimeLeftMinute(25);
     setTimeLeftSeconds(0);
+    setSBToggle(false);
     setStartToggle(false);
     setSessionSetting(25);
     setBreakSetting(5);
     playSound("button-audio");
+    let beepSound = document.getElementById("beep");
+    beepSound.currentTime = 0;
   };
 
   const incrementDecrement = (whichSetting, operation) => {
     if (!startToggle) {
       if (whichSetting === "session") {
-        if (operation === "increment" && sessionSetting < 60) {
+        let sessionRef = sessionSetting;
+        if (operation === "increment" && sessionSetting <= 59) {
           setSessionSetting(sessionSetting + 1);
-          setTimeLeftMinute(timeLeftMinute + 1);
-          setTimeLeftSeconds(0);
+          if (!sessionBreakToggle) {
+            setTimeLeftMinute(sessionRef + 1);
+            setTimeLeftSeconds(0);
+          }
         } else if (operation === "decrement" && sessionSetting > 1) {
           setSessionSetting(sessionSetting - 1);
-          setTimeLeftMinute(timeLeftMinute - 1);
-          setTimeLeftSeconds(0);
+          if (!sessionBreakToggle) {
+            setTimeLeftMinute(sessionRef - 1);
+            setTimeLeftSeconds(0);
+          }
         }
       } else {
-        if (operation === "increment" && breakSetting < 60) {
+        let breakRef = breakSetting;
+        if (operation === "increment" && breakSetting <= 59) {
           setBreakSetting(breakSetting + 1);
+          if (!sessionBreakToggle) {
+            setTimeLeftMinute(breakRef + 1);
+            setTimeLeftSeconds(0);
+          }
         } else if (operation === "decrement" && breakSetting > 1) {
           setBreakSetting(breakSetting - 1);
+          if (!sessionBreakToggle) {
+            setTimeLeftMinute(breakRef - 1);
+            setTimeLeftSeconds(0);
+          }
         }
       }
     }
@@ -86,7 +114,7 @@ export default function PomodoroClock() {
       <div className="clock-row">
         <div className="clock-timer-container">
           <label htmlFor="time-left" id="timer-label">
-            Session
+            {sessionBreakToggle ? "Break" : "Session"}
           </label>
           <div id="time-left">
             <span className="time-left-minusecs">
@@ -97,7 +125,7 @@ export default function PomodoroClock() {
               {timeLeftSecond < 10 ? "0" + timeLeftSecond : timeLeftSecond}
             </span>
           </div>
-          <audio id="timer-audio" src={timerAudio}></audio>
+          <audio id="beep" src={timerAudio}></audio>
         </div>
       </div>
       <div className="clock-row-start-stop">
