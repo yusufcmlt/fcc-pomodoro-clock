@@ -2,4 +2,4 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## FreeCodeCamp React Pomodoro Clock
 
-Simple pomodoro clock app using React.
+Simple pomodoro clock app created using React.

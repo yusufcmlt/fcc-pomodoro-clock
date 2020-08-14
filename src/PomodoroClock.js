@@ -24,8 +24,7 @@ export default function PomodoroClock() {
           setTimeLeftSeconds(59);
         } else if (timeLeftSecond > 0) {
           setTimeLeftSeconds(timeLeftSecond - 1);
-        } else if (timeLeftSecond === 0 && timeLeftSecond === 0) {
-          playSound("beep");
+        } else if (timeLeftMinute === 0 && timeLeftSecond === 0) {
           if (!sessionBreakToggle) {
             setTimeLeftMinute(breakSetting);
             setSBToggle(true);
@@ -48,6 +47,11 @@ export default function PomodoroClock() {
     sessionSetting,
   ]);
 
+  useEffect(() => {
+    if (timeLeftSecond === 0 && timeLeftMinute === 0) {
+      playSound("beep");
+    }
+  });
   const startStop = () => {
     setStartToggle(!startToggle);
 
@@ -64,6 +68,7 @@ export default function PomodoroClock() {
     playSound("button-audio");
     let beepSound = document.getElementById("beep");
     beepSound.currentTime = 0;
+    beepSound.pause();
   };
 
   const incrementDecrement = (whichSetting, operation) => {
@@ -87,13 +92,13 @@ export default function PomodoroClock() {
         let breakRef = breakSetting;
         if (operation === "increment" && breakSetting <= 59) {
           setBreakSetting(breakSetting + 1);
-          if (!sessionBreakToggle) {
+          if (sessionBreakToggle) {
             setTimeLeftMinute(breakRef + 1);
             setTimeLeftSeconds(0);
           }
         } else if (operation === "decrement" && breakSetting > 1) {
           setBreakSetting(breakSetting - 1);
-          if (!sessionBreakToggle) {
+          if (sessionBreakToggle) {
             setTimeLeftMinute(breakRef - 1);
             setTimeLeftSeconds(0);
           }

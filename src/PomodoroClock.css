@@ -30,11 +30,10 @@
   flex-direction: column;
   align-items: center;
   transition-duration: 0.2s;
-}
-.clock-container:hover {
   background-color: #f1b203;
   box-shadow: -7px 7px 1px 1px #b98a07;
 }
+
 .clock-timer-container {
   width: 400px;
   height: 250px;
