@@ -2,6 +2,6 @@
 
 # React Pomodoro Clock
 
-Simple pomodoro clock created with React. Created as a FreeCodeCamp front end project.
+- Simple pomodoro clock created with React. Created as a FreeCodeCamp front end project.
 
 - You can check it on [here](https://yusufcmlt.github.io/fcc-pomodoro-clock/ "here").
