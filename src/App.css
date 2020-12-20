@@ -17,6 +17,19 @@
   margin-top: 100px;
 }
 
+.github-link {
+  background-image: url("https://assets.stickpng.com/images/5847f98fcef1014c0b5e48c0.png");
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  background-size: 100%;
+  filter: invert(13%) sepia(78%) saturate(6194%) hue-rotate(257deg)
+    brightness(83%) contrast(116%);
+}
+.github-link:hover {
+  filter: none;
+}
+
 @media only screen and (max-width: 768px) {
   #pomodoro-h1 {
     font-size: 50px;
