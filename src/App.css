@@ -4,23 +4,23 @@
   text-align: center;
   font-family: "Concert One", cursive;
   background-color: #ffbe0b;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
 }
 
 #pomodoro-h1 {
   font-size: 75px;
   text-align: center;
   margin-bottom: 100px;
-  margin-top: 100px;
+  margin-top: 5vh;
 }
 
 .github-link {
-  background-image: url("https://assets.stickpng.com/images/5847f98fcef1014c0b5e48c0.png");
-  width: 50px;
-  height: 50px;
+  background-image: url("./assets/github-button.png");
+  width: 70px;
+  height: 70px;
   display: inline-block;
   background-size: 100%;
   filter: invert(13%) sepia(78%) saturate(6194%) hue-rotate(257deg)
@@ -30,10 +30,10 @@
   filter: none;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1400px) {
   #pomodoro-h1 {
     font-size: 50px;
-    margin-top: 50px;
-    margin-bottom: 50px;
+    margin-top: 30px;
+    margin-bottom: 20px;
   }
 }

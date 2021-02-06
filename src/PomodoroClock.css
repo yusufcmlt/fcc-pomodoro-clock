@@ -24,14 +24,12 @@
 }
 .clock-container {
   border-radius: 10px;
-  width: 500px;
-  height: 550px;
+
+  height: 60vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   transition-duration: 0.2s;
-  background-color: #f1b203;
-  box-shadow: -7px 7px 1px 1px #b98a07;
 }
 
 .clock-timer-container {
@@ -138,10 +136,18 @@
   margin-bottom: 15px;
 }
 
+@media only screen and (max-width: 1400px) {
+  .clock-container {
+    width: 35vw;
+    height: 70vh;
+    transform: scale(0.9);
+  }
+}
+
 @media only screen and (max-width: 768px) {
   .clock-container {
-    width: 370px;
-    height: 520px;
+    width: 100vw;
+    height: 60vh;
     transform: scale(0.95, 0.95);
   }
   #time-left {
