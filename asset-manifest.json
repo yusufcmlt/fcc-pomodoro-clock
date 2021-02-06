@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/fcc-pomodoro-clock/static/css/main.2f18ae02.chunk.css",
+    "main.css": "/fcc-pomodoro-clock/static/css/main.07c61a62.chunk.css",
     "main.js": "/fcc-pomodoro-clock/static/js/main.a0d0d8f9.chunk.js",
     "main.js.map": "/fcc-pomodoro-clock/static/js/main.a0d0d8f9.chunk.js.map",
     "runtime-main.js": "/fcc-pomodoro-clock/static/js/runtime-main.64532136.js",
@@ -8,10 +8,11 @@
     "static/js/2.11df3ca3.chunk.js": "/fcc-pomodoro-clock/static/js/2.11df3ca3.chunk.js",
     "static/js/2.11df3ca3.chunk.js.map": "/fcc-pomodoro-clock/static/js/2.11df3ca3.chunk.js.map",
     "index.html": "/fcc-pomodoro-clock/index.html",
-    "precache-manifest.5e5a72e98747e3aec60136948faf79e1.js": "/fcc-pomodoro-clock/precache-manifest.5e5a72e98747e3aec60136948faf79e1.js",
+    "precache-manifest.e5db3ddb0099a72a3a27d263bfd17bc7.js": "/fcc-pomodoro-clock/precache-manifest.e5db3ddb0099a72a3a27d263bfd17bc7.js",
     "service-worker.js": "/fcc-pomodoro-clock/service-worker.js",
-    "static/css/main.2f18ae02.chunk.css.map": "/fcc-pomodoro-clock/static/css/main.2f18ae02.chunk.css.map",
+    "static/css/main.07c61a62.chunk.css.map": "/fcc-pomodoro-clock/static/css/main.07c61a62.chunk.css.map",
     "static/js/2.11df3ca3.chunk.js.LICENSE.txt": "/fcc-pomodoro-clock/static/js/2.11df3ca3.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/fcc-pomodoro-clock/static/media/github-button.285a4c4c.png",
     "static/media/incrementDecrement.mp3": "/fcc-pomodoro-clock/static/media/incrementDecrement.f332e318.mp3",
     "static/media/startStop.mp3": "/fcc-pomodoro-clock/static/media/startStop.2fcb8688.mp3",
     "static/media/timerAudio.mp3": "/fcc-pomodoro-clock/static/media/timerAudio.ba877f66.mp3"
@@ -19,7 +20,7 @@
   "entrypoints": [
     "static/js/runtime-main.64532136.js",
     "static/js/2.11df3ca3.chunk.js",
-    "static/css/main.2f18ae02.chunk.css",
+    "static/css/main.07c61a62.chunk.css",
     "static/js/main.a0d0d8f9.chunk.js"
   ]
 }
